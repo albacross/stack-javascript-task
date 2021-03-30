@@ -30,8 +30,10 @@ module.exports = class Stack {
   }
 
   swap() {
-    const lastElement = this.stack[this.size - 1];
-    const secondFromTheEndElement = this.stack[this.size - 2];
+    const {
+      [this.size - 1]: lastElement,
+      [this.size - 2]: secondFromTheEndElement,
+    } = this.stack;
     const rest = this.stack.splice(0, this.size - 2);
 
     this._reArrangeStack(...rest, lastElement, secondFromTheEndElement);
